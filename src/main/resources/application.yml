@@ -1,0 +1,17 @@
+server:
+  port: 9522
+  servlet:
+    context-path: /blog
+
+spring:
+  datasource:
+    password: yhx5407582588
+    username: root
+    url: jdbc:mysql://3l43723a04.wicp.vip:36336/myBlog?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+mybatis:
+  config-location: classpath:/mybatis/mybatis.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  type-aliases-package: com.yaohuaxiang.bean

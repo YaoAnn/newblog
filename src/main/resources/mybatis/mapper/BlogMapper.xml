@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yaohuaxiang.dao.BlogDao">
+    <!--方法一 推荐-->
+    <resultMap id="blog" type="Blog">
+        <id column="bid" property="id"></id>
+        <result column="time" property="createTime"></result>
+        <result column="title" property="title"></result>
+        <result column="content" property="content"></result>
+    </resultMap>
+
+    <select id="getAllBlog" resultMap="blog">
+        select * from blogs
+    </select>
+     <!--       方法二
+    <select id="selectAllBlog" resultType="com.yaohuaxiang.bean.Blog">
+        select bid id, time createTime ,title, content from blogs
+    </select>-->
+
+    <select id="getBlogById" resultMap="blog">
+        select * from blogs where bid = #{id}
+    </select>
+</mapper>
