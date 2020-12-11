@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yaohuaxiang.dao.CommentDao">
+    <resultMap id="comment" type="Comment">
+        <id column="cid" property="id"></id>
+        <result column="ct" property="content"></result>
+        <association property="blog" javaType="Blog">
+            <id column="bid" property="id"></id>
+            <result column="title" property="title"></result>
+            <result column="time" property="createTime"></result>
+            <result column="bt" property="content"></result>
+        </association>
+    </resultMap>
+
+    <select id="getAllComment" resultMap="comment">
+        select
+            c.cid,
+            c.content ct, b.bid, b.title, b.time, b.content bt
+        from comments c
+        left join blogs b on c.blog=b.bid
+        <if test="id != null and id != ''">
+            where bid = #{id}
+        </if>;
+    </select>
+</mapper>

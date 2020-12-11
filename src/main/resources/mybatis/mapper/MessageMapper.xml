@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yaohuaxiang.dao.MessageDao">
+    <resultMap id="message" type="Message">
+        <id column="mid" property="id"></id>
+        <result column="content" property="content"></result>
+    </resultMap>
+    <select id="getAllMessage" resultMap="message">
+        select * from messages
+    </select>
+</mapper>

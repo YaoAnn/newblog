@@ -9,9 +9,8 @@ import java.io.Serializable;
 /**
  * @author yaohuaxiang
  * @create 2020/12/10 - 15:27
+ * 通用的返回类型
  */
-
-//通用的返回类型
 
 @Data
 @AllArgsConstructor
