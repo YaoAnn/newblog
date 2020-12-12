@@ -23,10 +23,10 @@ public class BlogServiceImpl implements BlogService {
     public Result getAllBlog() {
         try{
             List<Blog> blogs = blogDao.getAllBlog();
-            return new Result(true,blogs,"返回数据成功");
+            return Result.newInstance4Success(blogs);
         }catch (Exception e){
             e.printStackTrace();
-            return new Result(false,null,"获取数据错误");
+            return Result.newInstance4Failure();
         }
     }
 
@@ -34,10 +34,37 @@ public class BlogServiceImpl implements BlogService {
     public Result getBlogById(Integer id) {
         try{
             Blog blog = blogDao.getBlogById(id);
-            return new Result(true,blog,"获取数据成功");
+            return Result.newInstance4Success(blog);
         }catch (Exception e){
             e.printStackTrace();
-            return new Result(false,null,"获取数据失败");
+            return Result.newInstance4Failure();
+        }
+    }
+
+    @Override
+    public Result deleteBlog(Integer id) {
+        try{
+            Blog blog = blogDao.getBlogById(id);
+            blogDao.deleteBlog(blog);
+            return Result.newInstance4Success(null);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.newInstance4Failure();
+        }
+    }
+
+    @Override
+    public Result saveBlog(Blog blog) {
+        try{
+            if(blog.getId()!=null){
+                blogDao.updateBlog(blog);
+            }else{
+                blogDao.addBlog(blog);
+            }
+            return Result.newInstance4Success(blog);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.newInstance4Failure();
         }
     }
 }

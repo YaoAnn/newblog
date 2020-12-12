@@ -20,4 +20,12 @@ public class Result<T> implements Serializable {
     private T data;//返回数据
     private String msg;//返回消息
 
+    public static Result newInstance4Success(Object data){
+        return new Result(true,data,"执行服务成功");
+    }
+
+    public static Result newInstance4Failure(){
+        return new Result(false,null,"执行服务异常，请稍后重试");
+    }
+
 }

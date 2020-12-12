@@ -1,7 +1,7 @@
 server:
   port: 9522
-  servlet:
-    context-path: /blog
+#  servlet:
+#    context-path: /blog
 
 spring:
   datasource:

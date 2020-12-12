@@ -2,8 +2,7 @@ package com.yaohuaxiang.dao;
 
 import com.yaohuaxiang.bean.Blog;
 import com.yaohuaxiang.bean.Result;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,5 +16,12 @@ import java.util.List;
 @Mapper
 public interface BlogDao {
     List<Blog> getAllBlog();
+
     Blog getBlogById(Integer id);
+
+    void deleteBlog(Blog blog);
+
+    void updateBlog(Blog blog);
+
+    void addBlog(Blog blog);
 }

@@ -10,5 +10,11 @@ import java.util.List;
  * @create 2020/12/11 - 9:21
  */
 public interface CommentService {
-    Result getAllComment(Integer id);
+    Result getAllCommentByBlog(Integer id);
+
+    Result addComment(Integer id , Comment comment);
+
+    Result getAllComment();
+
+    Result deleteComment(Integer id);
 }

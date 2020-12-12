@@ -1,5 +1,6 @@
 package com.yaohuaxiang.service;
 
+import com.yaohuaxiang.bean.Message;
 import com.yaohuaxiang.bean.Result;
 
 /**
@@ -8,4 +9,8 @@ import com.yaohuaxiang.bean.Result;
  */
 public interface MessageService {
     Result getAllMessage();
+
+    Result addMessage(Message message);
+
+    Result deleteMessage(Integer id);
 }

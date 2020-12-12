@@ -24,10 +24,32 @@ public class MessageServiceImpl implements MessageService {
     public Result getAllMessage() {
         try {
             List<Message> messages = messageDao.getAllMessage();
-            return new Result(true, messages, "返回数据成功");
+            return Result.newInstance4Success(messages);
         }catch (Exception e){
             e.printStackTrace();
-            return new Result(false,null,"获取数据错误");
+            return Result.newInstance4Failure();
+        }
+    }
+
+    @Override
+    public Result addMessage(Message message) {
+        try {
+            messageDao.addMessage(message);
+            return Result.newInstance4Success(null);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.newInstance4Failure();
+        }
+    }
+
+    @Override
+    public Result deleteMessage(Integer id) {
+        try{
+            messageDao.deleteMessage(id);
+            return Result.newInstance4Success(null);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.newInstance4Failure();
         }
     }
 }

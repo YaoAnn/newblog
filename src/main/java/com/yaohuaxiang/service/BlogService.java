@@ -1,5 +1,6 @@
 package com.yaohuaxiang.service;
 
+import com.yaohuaxiang.bean.Blog;
 import com.yaohuaxiang.bean.Result;
 
 /**
@@ -10,4 +11,6 @@ import com.yaohuaxiang.bean.Result;
 public interface BlogService {
     Result getAllBlog();
     Result getBlogById(Integer id);
+    Result deleteBlog(Integer id);
+    Result saveBlog(Blog blog);
 }
