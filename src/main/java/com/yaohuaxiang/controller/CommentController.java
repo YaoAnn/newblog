@@ -16,8 +16,8 @@ public class CommentController {
     CommentService commentService;
 
     @GetMapping("/comment/{id}")
-    public Result getAllCommentByBlog(@PathVariable("id")Integer id){
-        return commentService.getAllCommentByBlog(id);
+    public Result getAllComment(@PathVariable("id")Integer id){
+        return commentService.getAllComment(id);
     }
 
     @PostMapping("/comment/{id}")
@@ -27,7 +27,7 @@ public class CommentController {
 
     @GetMapping("/comment")
     public Result getAllComment(){
-        return commentService.getAllComment();
+        return commentService.getAllComment(null);
     }
 
     @DeleteMapping("/comment/{id}")

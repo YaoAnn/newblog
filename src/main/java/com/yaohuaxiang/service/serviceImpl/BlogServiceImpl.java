@@ -6,6 +6,7 @@ import com.yaohuaxiang.dao.BlogDao;
 import com.yaohuaxiang.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -42,6 +43,7 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    @Transactional
     public Result deleteBlog(Integer id) {
         try{
             Blog blog = blogDao.getBlogById(id);
@@ -54,6 +56,7 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    @Transactional
     public Result saveBlog(Blog blog) {
         try{
             if(blog.getId()!=null){

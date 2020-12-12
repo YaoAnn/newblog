@@ -4,10 +4,23 @@
 <mapper namespace="com.yaohuaxiang.dao.BlogDao">
 
     <select id="getAllBlog" resultType="Blog">
-        select id,title,createTime,content from blogs
+        select id,title,createTime,content from blogs;
     </select>
 
     <select id="getBlogById" resultType="Blog">
-        select id,title,createTime,content from blogs where id = #{id}
+        select id,title,createTime,content from blogs where id = #{id};
     </select>
+
+    <delete id="deleteBlog">
+        delete from blogs where id = #{blog.id}
+        delete from comments where blog = #{blog.id};
+    </delete>
+
+    <update id="updateBlog">
+        update blogs set title=#{blog.title},content=#{blog.content} where id=#{blog.id};
+    </update>
+
+    <insert id="addBlog">
+        insert into blogs(title,content) values(#{blog.title},#{blog.content});
+    </insert>
 </mapper>

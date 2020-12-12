@@ -8,6 +8,7 @@ import com.yaohuaxiang.dao.CommentDao;
 import com.yaohuaxiang.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,19 +26,19 @@ public class CommentServiceImpl implements CommentService {
     BlogDao blogDao;
 
     @Override
-    public Result getAllCommentByBlog(Integer id) {
+    public Result getAllComment(Integer id) {
         try {
             Blog blog = blogDao.getBlogById(id);
-            List<Comment> comments = commentDao.getAllCommentByBlog(blog);
+            List<Comment> comments = commentDao.getAllComment(blog);
             return Result.newInstance4Success(comments);
         }catch (Exception e){
             e.printStackTrace();
             return Result.newInstance4Failure();
         }
-
     }
 
     @Override
+    @Transactional
     public Result addComment(Integer id, Comment comment) {
         try {
             Blog blog = blogDao.getBlogById(id);
@@ -50,18 +51,9 @@ public class CommentServiceImpl implements CommentService {
         }
     }
 
-    @Override
-    public Result getAllComment() {
-        try{
-            List<Comment> comments = commentDao.getAllComment();
-            return Result.newInstance4Success(comments);
-        }catch (Exception e){
-            e.printStackTrace();
-            return Result.newInstance4Failure();
-        }
-    }
 
     @Override
+    @Transactional
     public Result deleteComment(Integer id) {
         try{
             commentDao.deleteComment(id);

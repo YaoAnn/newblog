@@ -17,7 +17,6 @@ import java.util.List;
 public interface MessageDao {
     List<Message> getAllMessage();
 
-    //底下没有写好
     void addMessage(Message message);
 
     void deleteMessage(Integer id);

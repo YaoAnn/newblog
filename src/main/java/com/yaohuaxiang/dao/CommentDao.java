@@ -16,12 +16,9 @@ import java.util.List;
 
 @Mapper
 public interface CommentDao {
-    List<Comment> getAllCommentByBlog(Blog blog);
+    List<Comment> getAllComment(Blog blog);
 
     void addComment(Comment comment);
-
-    //获取所有博客对应的评论
-    List<Comment> getAllComment();
 
     void deleteComment(Integer id);
 

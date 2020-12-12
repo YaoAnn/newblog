@@ -6,6 +6,7 @@ import com.yaohuaxiang.dao.MessageDao;
 import com.yaohuaxiang.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
+    @Transactional
     public Result addMessage(Message message) {
         try {
             messageDao.addMessage(message);
@@ -43,6 +45,7 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
+    @Transactional
     public Result deleteMessage(Integer id) {
         try{
             messageDao.deleteMessage(id);

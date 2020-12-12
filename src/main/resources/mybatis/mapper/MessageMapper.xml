@@ -9,4 +9,12 @@
     <select id="getAllMessage" resultType="Message">
         select id,content from messages
     </select>
+
+    <insert id="addMessage">
+        insert into messages(content) values(#{message.content});
+    </insert>
+
+    <delete id="deleteMessage">
+        delete from messages where id=#{id};
+    </delete>
 </mapper>

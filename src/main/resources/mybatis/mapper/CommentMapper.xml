@@ -19,8 +19,16 @@
             c.content ct, b.id bid, b.title, b.createTime, b.content bt
         from comments c
         left join blogs b on c.blog=b.id
-        <if test="id != null and id != ''">
+        <if test="blog !=null and blog.id != null and blog.id != ''">
             where b.id = #{blog.id}
         </if>;
     </select>
+
+    <insert id="addComment">
+        insert into comments(content,blog) values(#{comment.content},#{comment.blog.id});
+    </insert>
+
+    <delete id="deleteComment">
+        delete from comments where id=#{id}
+    </delete>
 </mapper>
