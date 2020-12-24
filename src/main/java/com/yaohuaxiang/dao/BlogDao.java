@@ -19,7 +19,7 @@ public interface BlogDao {
 
     Blog getBlogById(Integer id);
 
-    void deleteBlog(Blog blog);
+    void deleteBlog(Integer id);
 
     void updateBlog(Blog blog);
 

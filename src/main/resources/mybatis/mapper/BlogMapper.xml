@@ -12,8 +12,8 @@
     </select>
 
     <delete id="deleteBlog">
-        delete from blogs where id = #{blog.id}
-        delete from comments where blog = #{blog.id};
+        delete from blogs where id = #{id}
+        delete from comments where blog = #{id};
     </delete>
 
     <update id="updateBlog">

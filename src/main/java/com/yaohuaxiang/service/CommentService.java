@@ -12,7 +12,7 @@ import java.util.List;
 public interface CommentService {
     Result getAllComment(Integer id);
 
-    Result addComment(Integer id , Comment comment);
+    Result addComment(Integer id,Comment comment);
 
     Result deleteComment(Integer id);
 }

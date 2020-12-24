@@ -19,8 +19,8 @@
             c.content ct, b.id bid, b.title, b.createTime, b.content bt
         from comments c
         left join blogs b on c.blog=b.id
-        <if test="blog !=null and blog.id != null and blog.id != ''">
-            where b.id = #{blog.id}
+        <if test="id!=null">
+            where b.id = #{id}
         </if>;
     </select>
 

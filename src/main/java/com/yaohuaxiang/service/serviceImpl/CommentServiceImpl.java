@@ -28,8 +28,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Result getAllComment(Integer id) {
         try {
-            Blog blog = blogDao.getBlogById(id);
-            List<Comment> comments = commentDao.getAllComment(blog);
+            List<Comment> comments = commentDao.getAllComment(id);
             return Result.newInstance4Success(comments);
         }catch (Exception e){
             e.printStackTrace();

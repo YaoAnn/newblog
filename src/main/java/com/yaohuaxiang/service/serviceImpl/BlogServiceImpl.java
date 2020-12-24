@@ -46,8 +46,7 @@ public class BlogServiceImpl implements BlogService {
     @Transactional
     public Result deleteBlog(Integer id) {
         try{
-            Blog blog = blogDao.getBlogById(id);
-            blogDao.deleteBlog(blog);
+            blogDao.deleteBlog(id);
             return Result.newInstance4Success(null);
         }catch (Exception e){
             e.printStackTrace();
